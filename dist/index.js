@@ -8647,7 +8647,7 @@ class ConventionalCommits {
                 if (result && result.level !== null) {
                     // Demote everything one level with bumpMinorOnBreaking.
                     const level = this.bumpMinorOnBreaking ?
-                        Math.max(result.level - 1, 2) :
+                        Math.min(result.level + 1, 2) :
                         result.level;
                     result.releaseType = VERSIONS[level];
                 }
@@ -8657,7 +8657,8 @@ class ConventionalCommits {
                 // we have slightly different logic than the default of conventional commits,
                 // the minor should be bumped when features are introduced for pre 1.x.x libs:
                 if (result.reason.indexOf(' 0 features') === -1 &&
-                    result.releaseType === 'patch') {
+                    result.releaseType === 'patch' &&
+                    !this.bumpMinorOnBreaking) {
                     result.releaseType = 'minor';
                 }
                 return resolve(result);
