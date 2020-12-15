@@ -6,6 +6,7 @@ const RELEASE_LABEL = 'autorelease: pending'
 
 async function main () {
   const bumpMinorPreMajor = Boolean(core.getInput('bump-minor-pre-major'))
+  const bumpMinorOnBreaking = Boolean(core.getInput('bump-minor-on-breaking'))
   const monorepoTags = Boolean(core.getInput('monorepo-tags'))
   const packageName = core.getInput('package-name')
   const path = core.getInput('path') ? core.getInput('path') : undefined
@@ -57,6 +58,7 @@ async function main () {
       token: token,
       label: RELEASE_LABEL,
       bumpMinorPreMajor,
+      bumpMinorOnBreaking,
       defaultBranch,
       changelogSections
     })
