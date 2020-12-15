@@ -50646,6 +50646,7 @@ class Node extends release_pr_1.ReleasePR {
             commits,
             githubRepoUrl: this.repoUrl,
             bumpMinorPreMajor: this.bumpMinorPreMajor,
+            bumpMinorOnBreaking: this.bumpMinorOnBreaking,
             changelogSections: this.changelogSections,
         });
         const candidate = await this.coerceReleaseCandidate(cc, latestTag);
@@ -54958,6 +54959,7 @@ const DEFAULT_LABELS = 'autorelease: pending';
 class ReleasePR {
     constructor(options) {
         this.bumpMinorPreMajor = options.bumpMinorPreMajor || false;
+        this.bumpMinorOnBreaking = options.bumpMinorOnBreaking || false;
         this.defaultBranch = options.defaultBranch;
         this.fork = !!options.fork;
         this.labels = options.label
