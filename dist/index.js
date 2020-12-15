@@ -8637,7 +8637,7 @@ class ConventionalCommits {
     }
     async guessReleaseType(preMajor) {
         const VERSIONS = ['major', 'minor', 'patch'];
-        const preset = await presetFactory({ preMajor: preMajor || this.bumpMinorOnBreaking });
+        const preset = await presetFactory({ preMajor });
         return new Promise((resolve, reject) => {
             const stream = this.commitsReadable()
                 .pipe(conventionalCommitsParser(preset.parserOpts))
@@ -8645,7 +8645,11 @@ class ConventionalCommits {
                 const commits = conventionalCommitsFilter(data);
                 let result = preset.recommendedBumpOpts.whatBump(commits, preset.recommendedBumpOpts);
                 if (result && result.level !== null) {
-                    result.releaseType = VERSIONS[result.level];
+                    // Demote everything one level with bumpMinorOnBreaking.
+                    const level = this.bumpMinorOnBreaking ?
+                        Math.max(result.level - 1, 2) :
+                        result.level;
+                    result.releaseType = VERSIONS[level];
                 }
                 else if (result === null) {
                     result = {};
