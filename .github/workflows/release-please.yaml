@@ -27,7 +27,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-          fork: true
           package-name: release-please-action
           command: release-pr
   release-please-release:
