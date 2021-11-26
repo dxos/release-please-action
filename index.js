@@ -87,6 +87,7 @@ async function main () {
 
   const bumpMinorPreMajor = getBooleanInput('bump-minor-pre-major')
   const bumpPatchForMinorPreMajor = getBooleanInput('bump-patch-for-minor-pre-major')
+  const bumpMinorOnBreaking = getBooleanInput('bump-minor-on-breaking')
   const monorepoTags = getBooleanInput('monorepo-tags')
   const packageName = core.getInput('package-name')
   const path = core.getInput('path') || undefined
@@ -139,6 +140,7 @@ async function main () {
       label: RELEASE_LABEL,
       bumpMinorPreMajor,
       bumpPatchForMinorPreMajor,
+      bumpMinorOnBreaking,
       changelogPath,
       changelogSections,
       versionFile,

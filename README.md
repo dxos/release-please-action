@@ -51,6 +51,7 @@ Automate releases with Conventional Commit Messages.
 | `package-name` | A name for the artifact releases are being created for (this might be the `name` field in a `setup.py` or `package.json`) |
 | `bump-minor-pre-major` | Should breaking changes before 1.0.0 produce minor bumps?  Default `No` |
 | `bump-patch-for-minor-pre-major` | Should feat changes before 1.0.0 produce patch bumps instead of minor bumps?  Default `No` |
+| `bump-minor-on-breaking` | Should we bump the semver minor on breaking changes, instead of major?  Default `No` |
 | `path`          | create a release from a path other than the repository's root |
 | `monorepo-tags` | add prefix to tags and branches, allowing multiple libraries to be released from the same repository. |
 | `changelog-types` | A JSON formatted String containing to override the outputted changelog sections |

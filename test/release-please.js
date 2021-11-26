@@ -12,6 +12,7 @@ const defaultInput = {
   clean: 'true',
   'bump-minor-pre-major': 'false',
   'bump-patch-for-minor-pre-major': 'false',
+  'bump-minor-on-breaking': 'false',
   path: '',
   'monorepo-tags': 'false',
   'changelog-path': '',

@@ -28,6 +28,10 @@ inputs:
     description: 'should feat changes before 1.0.0 produce patch bumps instead of minor bumps'
     required: false
     default: false
+  bump-minor-on-breaking:
+    description: 'should we bump the semver minor on breaking changes, instead of major'
+    required: false
+    default: false
   path:
     description: "create a release from a path other than the repository's root"
     required: false
