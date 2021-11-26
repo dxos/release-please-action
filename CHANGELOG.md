@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.36.0](https://www.github.com/dxos/release-please-action/compare/v2.35.0...v2.36.0) (2021-11-26)
+
+
+### Features
+
+* Introduce option to bump minor on breaking ([02c44da](https://www.github.com/dxos/release-please-action/commit/02c44dad51f97443d75fdf488eba0417cbfc5926))
+
+
+### Bug Fixes
+
+* Compile it ([30c6866](https://www.github.com/dxos/release-please-action/commit/30c68668d5470ff493f3a60bce8479946c387688))
+* Update node ([548d05b](https://www.github.com/dxos/release-please-action/commit/548d05bc3be7c9a924d450d8cf5c74b278f5be41))
+
 ## [2.35.0](https://www.github.com/dxos/release-please-action/compare/v2.34.0...v2.35.0) (2021-11-25)
 
 
