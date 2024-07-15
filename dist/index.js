@@ -19442,6 +19442,7 @@ exports.createBranch = createBranch;
 async function branch(octokit, origin, upstream, name, baseBranch = DEFAULT_PRIMARY_BRANCH) {
     // create branch from primary branch HEAD SHA
     try {
+        logger_1.logger.error(`upstream: ${upstream} baseBranch: ${baseBranch} origin ${origin} name ${name}`);
         const baseSha = await getBranchHead(octokit, upstream, baseBranch);
         const duplicate = await existsBranchWithName(octokit, origin, name);
         await createBranch(octokit, origin, name, baseSha, duplicate);
