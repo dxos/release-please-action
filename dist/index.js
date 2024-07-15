@@ -19444,6 +19444,7 @@ async function branch(octokit, origin, upstream, name, baseBranch = DEFAULT_PRIM
     try {
         logger_1.logger.error(`upstream: ${upstream} baseBranch: ${baseBranch} origin ${origin} name ${name}`);
         const baseSha = await getBranchHead(octokit, upstream, baseBranch);
+        logger_1.logger.error(`baseSha: ${baseSha}`);
         const duplicate = await existsBranchWithName(octokit, origin, name);
         await createBranch(octokit, origin, name, baseSha, duplicate);
         return baseSha;
